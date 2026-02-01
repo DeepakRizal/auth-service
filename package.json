@@ -9,6 +9,7 @@
     "start": "node dist/server.js",
     "test:deps": "cross-env NODE_ENV=development ts-node-dev --transpile-only src/scripts/testDeps.ts",
     "seed:products": "cross-env NODE_ENV=development MYSQL_ENABLED=true ts-node-dev --transpile-only src/scripts/seedProducts.ts",
+    "seed:products:500": "cross-env NODE_ENV=development MYSQL_ENABLED=true SEED_RESET=true SEED_COUNT=500 SEED_BATCH_SIZE=500 ts-node-dev --transpile-only src/scripts/seedProducts.ts",
     "bench:queries": "cross-env NODE_ENV=development MYSQL_ENABLED=true ts-node-dev --transpile-only src/scripts/benchQueries.ts",
     "lint": "eslint \"src/**/*.ts\" eslint.config.mjs",
     "format": "prettier --write ."
