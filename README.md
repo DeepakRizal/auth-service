@@ -176,3 +176,5 @@ SEED_RESET=true SEED_COUNT=1000000 SEED_BATCH_SIZE=2000 npm run seed:products
 - Build command: `npm run build`
 - Start command: `npm start`
 - Add env vars in Render using `.env.example` as a guide (never paste secrets into Git).
+
+If Render fails during build with TypeScript errors like “Cannot find module …”, make sure Render installs dependencies during the build step (it must run `npm install` or `npm ci` before `npm run build`).
