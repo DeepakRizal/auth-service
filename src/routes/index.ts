@@ -7,10 +7,14 @@ import { externalARouter } from './externalA';
 import { healthRouter } from './health';
 import { metricsRouter } from './metrics';
 import { productsRouter } from './products';
+import { rootRouter } from './root';
+import { uiRouter } from './ui';
 import { webhookExternalBRouter } from './webhookExternalB';
 
 export const routes = Router();
 
+routes.use(rootRouter);
+routes.use(uiRouter);
 routes.use(healthRouter);
 
 if (env.AUTH0_ENABLED) {

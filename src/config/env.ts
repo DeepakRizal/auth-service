@@ -1,5 +1,7 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import { z } from 'zod';
+
+dotenv.config({ override: true });
 
 const emptyStringToUndefined = (val: unknown) => {
   if (val === undefined) return undefined;
