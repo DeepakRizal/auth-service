@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express from 'express';
+import express, { type NextFunction, type Request, type Response } from 'express';
 import { auth } from 'express-openid-connect';
 import helmet from 'helmet';
 import { getAuth0Config } from './config/auth0';
@@ -16,7 +16,7 @@ export function createApp() {
 
   app.disable('x-powered-by');
 
-  app.use((req, res, next) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     const startedAt = Date.now();
     res.on('finish', () => {
       const ms = Date.now() - startedAt;
@@ -44,7 +44,7 @@ export function createApp() {
   }
 
   const jsonParser = express.json({ limit: '1mb' });
-  app.use((req, res, next) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     if (req.originalUrl.startsWith('/webhooks/')) return next();
     return jsonParser(req, res, next);
   });
